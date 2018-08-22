@@ -34,8 +34,7 @@ public class SensorDevice implements Serializable {
     @Column(name = "name")
     private String name;
 
-    @OneToOne(optional = false)
-    @NotNull
+    @OneToOne
     @JoinColumn(unique = true)
     private Location location;
 
@@ -51,8 +50,11 @@ public class SensorDevice implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<LoraPacket> loraPackets = new HashSet<>();
 
-    @ManyToOne(optional = false)
-    @NotNull
+    @OneToOne(mappedBy = "sensorDevice")
+    @JsonIgnore
+    private Sensor sensor;
+
+    @ManyToOne
     @JsonIgnoreProperties("sensorDevices")
     private Location location;
 
@@ -165,6 +167,19 @@ public class SensorDevice implements Serializable {
 
     public void setLoraPackets(Set<LoraPacket> loraPackets) {
         this.loraPackets = loraPackets;
+    }
+
+    public Sensor getSensor() {
+        return sensor;
+    }
+
+    public SensorDevice sensor(Sensor sensor) {
+        this.sensor = sensor;
+        return this;
+    }
+
+    public void setSensor(Sensor sensor) {
+        this.sensor = sensor;
     }
 
     public Location getLocation() {

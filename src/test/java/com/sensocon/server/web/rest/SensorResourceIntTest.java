@@ -3,7 +3,6 @@ package com.sensocon.server.web.rest;
 import com.sensocon.server.SensoconCoreServerApp;
 
 import com.sensocon.server.domain.Sensor;
-import com.sensocon.server.domain.SensorDevice;
 import com.sensocon.server.repository.SensorRepository;
 import com.sensocon.server.service.SensorService;
 import com.sensocon.server.service.dto.SensorDTO;
@@ -97,11 +96,6 @@ public class SensorResourceIntTest {
         Sensor sensor = new Sensor()
             .name(DEFAULT_NAME)
             .alertsEnabled(DEFAULT_ALERTS_ENABLED);
-        // Add required entity
-        SensorDevice sensorDevice = SensorDeviceResourceIntTest.createEntity(em);
-        em.persist(sensorDevice);
-        em.flush();
-        sensor.setSensorDevice(sensorDevice);
         return sensor;
     }
 

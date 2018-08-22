@@ -30,7 +30,7 @@
                 <constraints nullable="true" />
             </column>
             <column name="sensor_device_id" type="bigint">
-                <constraints unique="true" nullable="false" uniqueConstraintName="ux_sensor_sensor_device_id" />
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_sensor_sensor_device_id" />
             </column>
             <column name="sensor_device_id" type="bigint">
                 <constraints nullable="true" />

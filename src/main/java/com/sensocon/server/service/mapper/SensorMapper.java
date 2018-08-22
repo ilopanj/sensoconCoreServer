@@ -12,7 +12,6 @@ import org.mapstruct.*;
 public interface SensorMapper extends EntityMapper<SensorDTO, Sensor> {
 
     @Mapping(source = "sensorDevice.id", target = "sensorDeviceId")
-    @Mapping(source = "sensorDevice.deviceId", target = "sensorDeviceDeviceId")
     @Mapping(source = "sensorDevice.id", target = "sensorDeviceId")
     SensorDTO toDto(Sensor sensor);
 

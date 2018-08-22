@@ -47,6 +47,10 @@ public class Location implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<SensorDevice> sensorDevices = new HashSet<>();
 
+    @OneToOne(mappedBy = "location")
+    @JsonIgnore
+    private SensorDevice sensorDevice;
+
     @ManyToOne
     @JsonIgnoreProperties("locations")
     private Company company;
@@ -148,6 +152,19 @@ public class Location implements Serializable {
 
     public void setSensorDevices(Set<SensorDevice> sensorDevices) {
         this.sensorDevices = sensorDevices;
+    }
+
+    public SensorDevice getSensorDevice() {
+        return sensorDevice;
+    }
+
+    public Location sensorDevice(SensorDevice sensorDevice) {
+        this.sensorDevice = sensorDevice;
+        return this;
+    }
+
+    public void setSensorDevice(SensorDevice sensorDevice) {
+        this.sensorDevice = sensorDevice;
     }
 
     public Company getCompany() {

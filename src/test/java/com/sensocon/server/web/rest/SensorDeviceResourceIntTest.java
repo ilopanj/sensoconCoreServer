@@ -3,8 +3,6 @@ package com.sensocon.server.web.rest;
 import com.sensocon.server.SensoconCoreServerApp;
 
 import com.sensocon.server.domain.SensorDevice;
-import com.sensocon.server.domain.Location;
-import com.sensocon.server.domain.Location;
 import com.sensocon.server.repository.SensorDeviceRepository;
 import com.sensocon.server.service.SensorDeviceService;
 import com.sensocon.server.service.dto.SensorDeviceDTO;
@@ -98,13 +96,6 @@ public class SensorDeviceResourceIntTest {
         SensorDevice sensorDevice = new SensorDevice()
             .deviceId(DEFAULT_DEVICE_ID)
             .name(DEFAULT_NAME);
-        // Add required entity
-        Location location = LocationResourceIntTest.createEntity(em);
-        em.persist(location);
-        em.flush();
-        sensorDevice.setLocation(location);
-        // Add required entity
-        sensorDevice.setLocation(location);
         return sensorDevice;
     }
 

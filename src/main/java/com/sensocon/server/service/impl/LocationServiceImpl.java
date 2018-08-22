@@ -15,6 +15,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 /**
  * Service Implementation for managing Location.
  */
@@ -61,6 +62,21 @@ public class LocationServiceImpl implements LocationService {
             .collect(Collectors.toCollection(LinkedList::new));
     }
 
+
+
+    /**
+     *  get all the locations where SensorDevice is null.
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true) 
+    public List<LocationDTO> findAllWhereSensorDeviceIsNull() {
+        log.debug("Request to get all locations where SensorDevice is null");
+        return StreamSupport
+            .stream(locationRepository.findAll().spliterator(), false)
+            .filter(location -> location.getSensorDevice() == null)
+            .map(locationMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
 
     /**
      * Get one location by id.

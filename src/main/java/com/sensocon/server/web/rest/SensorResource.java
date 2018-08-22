@@ -11,7 +11,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -44,7 +43,7 @@ public class SensorResource {
      */
     @PostMapping("/sensors")
     @Timed
-    public ResponseEntity<SensorDTO> createSensor(@Valid @RequestBody SensorDTO sensorDTO) throws URISyntaxException {
+    public ResponseEntity<SensorDTO> createSensor(@RequestBody SensorDTO sensorDTO) throws URISyntaxException {
         log.debug("REST request to save Sensor : {}", sensorDTO);
         if (sensorDTO.getId() != null) {
             throw new BadRequestAlertException("A new sensor cannot already have an ID", ENTITY_NAME, "idexists");
@@ -66,7 +65,7 @@ public class SensorResource {
      */
     @PutMapping("/sensors")
     @Timed
-    public ResponseEntity<SensorDTO> updateSensor(@Valid @RequestBody SensorDTO sensorDTO) throws URISyntaxException {
+    public ResponseEntity<SensorDTO> updateSensor(@RequestBody SensorDTO sensorDTO) throws URISyntaxException {
         log.debug("REST request to update Sensor : {}", sensorDTO);
         if (sensorDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

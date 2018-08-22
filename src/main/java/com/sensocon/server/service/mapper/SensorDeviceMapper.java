@@ -12,16 +12,15 @@ import org.mapstruct.*;
 public interface SensorDeviceMapper extends EntityMapper<SensorDeviceDTO, SensorDevice> {
 
     @Mapping(source = "location.id", target = "locationId")
-    @Mapping(source = "location.name", target = "locationName")
     @Mapping(source = "notificationGroup.id", target = "notificationGroupId")
     @Mapping(source = "location.id", target = "locationId")
-    @Mapping(source = "location.name", target = "locationName")
     SensorDeviceDTO toDto(SensorDevice sensorDevice);
 
     @Mapping(source = "locationId", target = "location")
     @Mapping(source = "notificationGroupId", target = "notificationGroup")
     @Mapping(target = "sensors", ignore = true)
     @Mapping(target = "loraPackets", ignore = true)
+    @Mapping(target = "sensor", ignore = true)
     @Mapping(source = "locationId", target = "location")
     SensorDevice toEntity(SensorDeviceDTO sensorDeviceDTO);
 

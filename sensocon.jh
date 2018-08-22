@@ -97,15 +97,15 @@ entity Location {
 // defining multiple OneToMany relationships with comments
 relationship OneToMany {
     Company to Location,
-    Location to SensorDevice{location(name) required},
+    Location to SensorDevice,
     SensorDevice to Sensor,
     Contact to NotificationGroup{contact(email)},
     SensorDevice to LoraPacket{device(deviceId)}
 }
 
 relationship OneToOne {
-	SensorDevice{location(name) required} to Location
-    Sensor{sensorDevice(deviceId) required} to SensorDevice
+	SensorDevice to Location
+    Sensor to SensorDevice
     LoraGateway{location(name) required} to Location
     SensorDevice to NotificationGroup
 }
