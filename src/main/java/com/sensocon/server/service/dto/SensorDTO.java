@@ -1,6 +1,5 @@
 package com.sensocon.server.service.dto;
 
-import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -16,8 +15,6 @@ public class SensorDTO implements Serializable {
     private Boolean alertsEnabled;
 
     private Long sensorDeviceId;
-
-    private String sensorDeviceDeviceId;
 
     private Long sensorDeviceId;
 
@@ -51,14 +48,6 @@ public class SensorDTO implements Serializable {
 
     public void setSensorDeviceId(Long sensorDeviceId) {
         this.sensorDeviceId = sensorDeviceId;
-    }
-
-    public String getSensorDeviceDeviceId() {
-        return sensorDeviceDeviceId;
-    }
-
-    public void setSensorDeviceDeviceId(String sensorDeviceDeviceId) {
-        this.sensorDeviceDeviceId = sensorDeviceDeviceId;
     }
 
     public Long getSensorDeviceId() {
@@ -97,7 +86,6 @@ public class SensorDTO implements Serializable {
             ", name='" + getName() + "'" +
             ", alertsEnabled='" + isAlertsEnabled() + "'" +
             ", sensorDevice=" + getSensorDeviceId() +
-            ", sensorDevice='" + getSensorDeviceDeviceId() + "'" +
             ", sensorDevice=" + getSensorDeviceId() +
             "}";
     }

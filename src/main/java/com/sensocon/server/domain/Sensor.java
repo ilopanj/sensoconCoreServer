@@ -5,7 +5,6 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -30,8 +29,7 @@ public class Sensor implements Serializable {
     @Column(name = "alerts_enabled")
     private Boolean alertsEnabled;
 
-    @OneToOne(optional = false)
-    @NotNull
+    @OneToOne
     @JoinColumn(unique = true)
     private SensorDevice sensorDevice;
 

@@ -15,6 +15,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 /**
  * Service Implementation for managing SensorDevice.
  */
@@ -61,6 +62,21 @@ public class SensorDeviceServiceImpl implements SensorDeviceService {
             .collect(Collectors.toCollection(LinkedList::new));
     }
 
+
+
+    /**
+     *  get all the sensorDevices where Sensor is null.
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true) 
+    public List<SensorDeviceDTO> findAllWhereSensorIsNull() {
+        log.debug("Request to get all sensorDevices where Sensor is null");
+        return StreamSupport
+            .stream(sensorDeviceRepository.findAll().spliterator(), false)
+            .filter(sensorDevice -> sensorDevice.getSensor() == null)
+            .map(sensorDeviceMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
 
     /**
      * Get one sensorDevice by id.

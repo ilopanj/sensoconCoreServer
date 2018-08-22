@@ -18,13 +18,9 @@ public class SensorDeviceDTO implements Serializable {
 
     private Long locationId;
 
-    private String locationName;
-
     private Long notificationGroupId;
 
     private Long locationId;
-
-    private String locationName;
 
     public Long getId() {
         return id;
@@ -58,14 +54,6 @@ public class SensorDeviceDTO implements Serializable {
         this.locationId = locationId;
     }
 
-    public String getLocationName() {
-        return locationName;
-    }
-
-    public void setLocationName(String locationName) {
-        this.locationName = locationName;
-    }
-
     public Long getNotificationGroupId() {
         return notificationGroupId;
     }
@@ -80,14 +68,6 @@ public class SensorDeviceDTO implements Serializable {
 
     public void setLocationId(Long locationId) {
         this.locationId = locationId;
-    }
-
-    public String getLocationName() {
-        return locationName;
-    }
-
-    public void setLocationName(String locationName) {
-        this.locationName = locationName;
     }
 
     @Override
@@ -118,10 +98,8 @@ public class SensorDeviceDTO implements Serializable {
             ", deviceId='" + getDeviceId() + "'" +
             ", name='" + getName() + "'" +
             ", location=" + getLocationId() +
-            ", location='" + getLocationName() + "'" +
             ", notificationGroup=" + getNotificationGroupId() +
             ", location=" + getLocationId() +
-            ", location='" + getLocationName() + "'" +
             "}";
     }
 }

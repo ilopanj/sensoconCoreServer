@@ -16,10 +16,9 @@
     "relationships": [
         {
             "relationshipType": "one-to-one",
-            "relationshipValidateRules": "required",
             "relationshipName": "location",
             "otherEntityName": "location",
-            "otherEntityField": "name",
+            "otherEntityField": "id",
             "ownerSide": true,
             "otherEntityRelationshipName": "sensorDevice"
         },
@@ -44,11 +43,17 @@
             "otherEntityRelationshipName": "device"
         },
         {
+            "relationshipType": "one-to-one",
+            "relationshipName": "sensor",
+            "otherEntityName": "sensor",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "sensorDevice"
+        },
+        {
             "relationshipType": "many-to-one",
-            "relationshipValidateRules": "required",
             "relationshipName": "location",
             "otherEntityName": "location",
-            "otherEntityField": "name"
+            "otherEntityField": "id"
         }
     ],
     "changelogDate": "20180822194014",

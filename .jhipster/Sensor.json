@@ -13,10 +13,9 @@
     "relationships": [
         {
             "relationshipType": "one-to-one",
-            "relationshipValidateRules": "required",
             "relationshipName": "sensorDevice",
             "otherEntityName": "sensorDevice",
-            "otherEntityField": "deviceId",
+            "otherEntityField": "id",
             "ownerSide": true,
             "otherEntityRelationshipName": "sensor"
         },

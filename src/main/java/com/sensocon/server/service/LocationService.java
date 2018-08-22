@@ -24,6 +24,12 @@ public interface LocationService {
      * @return the list of entities
      */
     List<LocationDTO> findAll();
+    /**
+     * Get all the LocationDTO where SensorDevice is null.
+     *
+     * @return the list of entities
+     */
+    List<LocationDTO> findAllWhereSensorDeviceIsNull();
 
 
     /**

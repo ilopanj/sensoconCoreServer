@@ -30,6 +30,13 @@
             "otherEntityRelationshipName": "location"
         },
         {
+            "relationshipType": "one-to-one",
+            "relationshipName": "sensorDevice",
+            "otherEntityName": "sensorDevice",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "location"
+        },
+        {
             "relationshipType": "many-to-one",
             "relationshipName": "company",
             "otherEntityName": "company",
